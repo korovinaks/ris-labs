@@ -1,0 +1,40 @@
+plugins {
+    id 'application'
+    id 'java'
+    id 'org.unbroken-dome.xjc' version '2.0.0'
+}
+
+
+application {
+    mainClassName = 'ru.nsu.korovina.Main'
+}
+
+group 'ru.nsu.korovina'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.commons:commons-compress:1.21'
+    implementation 'org.slf4j:slf4j-api:1.7.36'
+    implementation 'log4j:log4j:1.2.17'
+    implementation 'org.slf4j:slf4j-log4j12:1.7.36'
+
+    implementation 'javax.xml.bind:jaxb-api:2.3.0'
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.2'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+xjc {
+    srcDirName = "resources"
+}
+
